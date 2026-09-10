@@ -4,7 +4,10 @@
 > Built with `ibm/granite-4-h-small` and the watsonx Orchestrate ADK.
 
 ---
+## Problem Statement: 
+<img width="785" height="476" alt="image" src="https://github.com/user-attachments/assets/901671e3-69ef-4fba-a54b-9e34730c5b05" />
 
+---
 ## Overview
 
 **TechQueue** prepares candidates for job interviews by generating tailored question sets and personalised preparation strategies based on their profile, experience level, and target job role.
@@ -22,6 +25,13 @@ It retrieves role-specific interview questions, industry expectations, behaviora
 ## Demo
 <img width="1891" height="976" alt="image" src="https://github.com/user-attachments/assets/d9c1feee-cca4-48f6-bb76-337fdff7853f" />
 <img width="1891" height="887" alt="image" src="https://github.com/user-attachments/assets/ad9ec937-2e8c-43e9-84d9-8f62d576a8e7" />
+
+
+## Evaluation source
+<img width="1702" height="920" alt="image" src="https://github.com/user-attachments/assets/5bf271a9-a52e-4df9-92dd-72707c1c4a50" />
+
+---
+
 
 
 
