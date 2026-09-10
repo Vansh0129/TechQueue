@@ -1,0 +1,19 @@
+# TechQueue Knowledge Base: HR & Culture-Fit Interview Guidelines
+
+## 1. Common HR Screening Questions
+- "Tell me about yourself":
+  - Structure: Present (current role and recent wins) -> Past (relevant background and trajectory) -> Future (why this role and company align with your goals). Keep to 90-120 seconds.
+- "Why do you want to work here?":
+  - Connect your personal interests with the company's product, engineering challenges, or company culture. Mention specific tech stack components, open source contributions, or business milestones.
+- "What are your greatest strengths and weaknesses?":
+  - Strength: Back it with a concrete example and impact.
+  - Weakness: Pick a genuine professional skill (not a fake weakness like "I work too hard"), and explain the proactive steps you are currently taking to improve.
+- "Where do you see yourself in 3-5 years?":
+  - Show ambition aligned with the engineering career ladder (e.g., Staff/Principal track or Engineering Management), mastering distributed systems, and driving larger architectural impact.
+
+## 2. Navigating Compensation & Logistics
+- Questions about salary expectations: Research market rates on Levels.fyi and Glassdoor for your level and location. Provide a realistic range or focus on total compensation (base, equity/bonus, benefits).
+- Asking thoughtful questions to the interviewer:
+  - "What does success look like in the first 90 days for this role?"
+  - "How does the engineering team handle technical debt vs. feature velocity?"
+  - "What is the most interesting technical challenge the team solved in the past quarter?"

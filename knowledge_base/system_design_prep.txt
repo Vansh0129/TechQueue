@@ -1,0 +1,22 @@
+# TechQueue Knowledge Base: System Design & Distributed Systems
+
+## 1. System Design Interview Framework (The 5-Step Process)
+1. Clarify Requirements & Scope (3-5 min):
+   - Functional requirements: Core user actions, APIs, data ingestion.
+   - Non-functional requirements: Latency (p99 SLA), throughput (QPS/RPS), availability (99.99%), durability, consistency model.
+2. Back-of-the-Envelope Estimation (3-5 min):
+   - Active users (DAU/MAU), read vs. write ratio, storage requirements per year, network bandwidth estimates.
+3. High-Level Architecture (10-15 min):
+   - Client -> DNS -> Load Balancer (Nginx/HAProxy/Envoy) -> API Gateway -> Microservices -> Cache -> Database.
+4. Deep-Dive on Critical Components (15-20 min):
+   - Data partitioning (sharding schemes, consistent hashing with virtual nodes).
+   - Caching strategies (Cache-Aside, Write-Through, Write-Back; eviction policies: LRU, LFU).
+   - Asynchronous messaging (Kafka, RabbitMQ, SQS) for decoupling, rate limiting, and backpressure.
+5. Reliability, Bottlenecks & Trade-offs (5-10 min):
+   - Single points of failure (SPOF), circuit breakers, failover, disaster recovery, rate limiting (Token Bucket, Leaky Bucket).
+
+## 2. Key Distributed Systems Concepts
+- CAP Theorem: In the presence of a network partition (P), a distributed data store must choose between Consistency (C) and Availability (A).
+- PACELC Theorem: If there is a Partition (P), trade Consistency (C) and Availability (A); Else (E), trade Latency (L) and Consistency (C).
+- Database Scaling: Read replicas for scale-out reads; Vertical scaling; Horizontal sharding by user_id or hash key.
+- Real-Time Communication: WebSockets (bidirectional persistent TCP connection), Server-Sent Events (SSE - unidirectional server push), Long Polling.

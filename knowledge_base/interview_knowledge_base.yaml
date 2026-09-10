@@ -1,0 +1,17 @@
+spec_version: v1
+kind: knowledge_base
+name: interview_knowledge_base
+description: >
+  Comprehensive knowledge base for TechQueue Interview Coach containing role-specific
+  interview questions, behavioral scenarios, industry expectations, HR guidelines,
+  technical assessment frameworks, and model answers for software engineering,
+  data science, product management, and other tech roles.
+documents:
+  - path: interview_questions_swe.txt
+  - path: behavioral_interview_guide.txt
+  - path: hr_interview_guidelines.txt
+  - path: system_design_prep.txt
+  - path: data_science_interview_qa.txt
+  - path: product_manager_interview_prep.txt
+vector_index:
+  embeddings_model_name: ibm/slate-125m-english-rtrvr-v2

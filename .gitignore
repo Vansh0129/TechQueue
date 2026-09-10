@@ -1,0 +1,32 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*.class
+*.pyc
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ADK & Internal caches
+.bob/
+.cache/
+*.log
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store

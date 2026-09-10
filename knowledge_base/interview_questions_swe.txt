@@ -1,0 +1,30 @@
+# TechQueue Knowledge Base: Software Engineering Interview Guide
+
+## 1. Core Data Structures & Algorithms (DSA)
+- Arrays & Strings: Two Pointers, Sliding Window, Prefix Sums, Kadane's Algorithm.
+- Hash Maps & Sets: Collision resolution (chaining vs open addressing), frequency counters, O(1) average lookup vs O(n) worst case.
+- Linked Lists: Fast and slow pointers (Floyd's cycle detection), reversal in-place, merging sorted lists.
+- Trees & Binary Search Trees: BFS (level-order traversal), DFS (pre-order, in-order, post-order), Lowest Common Ancestor (LCA), balancing concepts (AVL, Red-Black).
+- Graphs: Breadth-First Search (shortest unweighted path), Depth-First Search (cycle detection, connected components), Dijkstra's algorithm (weighted non-negative shortest path), Topological Sort (Kahn's algorithm, DAG dependency resolution).
+- Dynamic Programming: Overlapping subproblems, optimal substructure, memoization (top-down) vs tabulation (bottom-up), knapsack variants, longest common subsequence (LCS).
+- Sorting & Searching: Binary search and variants, QuickSort, MergeSort (stable, O(n log n)), HeapSort.
+
+## 2. Technical System Concepts & Concurrency
+- Process vs. Thread: A process is an independent execution unit with its own virtual address space and isolated memory. A thread is the smallest schedulable execution unit within a process, sharing the process's address space, heap, and open file descriptors, but maintaining its own stack and registers.
+- Concurrency & Synchronization: Race conditions, deadlocks (Coffman conditions: mutual exclusion, hold and wait, no preemption, circular wait), mutexes, semaphores, atomic operations, lock-free data structures.
+- Memory Management: Stack allocation (LIFO, fast, scoped) vs. Heap allocation (dynamic, manual or garbage collected). Garbage collection algorithms: Reference counting, Mark-and-Sweep, Generational GC (Python/Java). Memory leaks in garbage-collected languages (dangling event listeners, circular references with finalizers, unclosed resources).
+
+## 3. Web & API Architecture
+- REST Principles: Statelessness, client-server separation, uniform interface, cacheability, layered system. Idempotency: GET, PUT, DELETE are idempotent; POST and PATCH generally are not.
+- REST vs. GraphQL vs. gRPC:
+  - REST: Standard HTTP verbs, simple caching via HTTP headers, potential over-fetching or under-fetching.
+  - GraphQL: Single endpoint, client defines exact response schema, eliminates over/under-fetching, complex server caching.
+  - gRPC: HTTP/2 transport, Protocol Buffers binary serialization, multiplexed streaming, strongly typed contracts, high throughput for microservices.
+- Web Security Essentials: Cross-Site Scripting (XSS; mitigation via CSP and HTML escaping), Cross-Site Request Forgery (CSRF; mitigation via SameSite cookies, anti-CSRF tokens), SQL Injection (mitigation via parameterized queries/ORMs).
+
+## 4. Software Engineering Best Practices & SOLID Principles
+- Single Responsibility Principle (SRP): A class or module should have only one reason to change.
+- Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification.
+- Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types without altering program correctness.
+- Interface Segregation Principle (ISP): Clients should not be forced to depend upon interfaces they do not use.
+- Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules; both should depend on abstractions.

@@ -1,0 +1,328 @@
+{
+  "spec": {
+    "kind": "flow",
+    "name": "interview_prep_flow",
+    "display_name": "TechQueue Interview Prep Flow",
+    "description": "Generates a personalised interview preparation plan for a candidate based on their profile, job role, and experience level using RAG from the interview knowledge base.",
+    "input_schema": {
+      "$ref": "#/schemas/interview_prep_flow_input"
+    },
+    "schedulable": false,
+    "suppress_agent_summarization": true
+  },
+  "nodes": {
+    "parse_candidate_profile": {
+      "spec": {
+        "kind": "tool",
+        "name": "parse_candidate_profile",
+        "display_name": "parse_candidate_profile",
+        "description": "Parse and enrich the raw candidate input into a structured prep context.\n\nDerives focus areas and recommended question types based on the job role\nand experience level, producing a clean context object for LLM prompt nodes.",
+        "input_schema": {
+          "$ref": "#/schemas/parse_candidate_profile_input"
+        },
+        "output_schema": {
+          "$ref": "#/schemas/PrepInput"
+        },
+        "tool": "parse_candidate_profile"
+      }
+    },
+    "generate_prep_plan": {
+      "spec": {
+        "kind": "prompt",
+        "name": "generate_prep_plan",
+        "display_name": "generate_prep_plan",
+        "input_schema": {
+          "$ref": "#/schemas/generate_prep_plan_input"
+        },
+        "output_schema": {
+          "$ref": "#/schemas/InterviewPrepFlowOutput"
+        },
+        "system_prompt": "You are TechQueue, an expert AI Interview Coach powered by RAG. You have access to a comprehensive knowledge base of role-specific interview questions, behavioral frameworks, system design guides, HR expectations, and model answers. Your job is to create a thorough, personalised interview preparation plan. Always use the knowledge base to retrieve the most relevant and up-to-date questions. Structure your output with clear sections: 1) Welcome & Profile Summary, 2) Key Focus Areas, 3) Recommended Question Set (with 3\u20135 questions per category), 4) Preparation Strategy & Tips, 5) Next Steps & Resources. Be specific, actionable, and encouraging.",
+        "user_prompt": "Generate a comprehensive interview preparation plan for the following candidate:\n\nName: {name}\nTarget Role: {job_role}\nExperience Level: {experience_level}\nTech Stack: {tech_stack}\nFocus Areas: {focus_areas}\nRecommended Question Types: {question_types}\nPersonalised Tip: {tip}\n\nPlease search the knowledge base for the most relevant questions and preparation strategies for this specific role and level. Include both technical and soft-skill questions, model answer outlines, and concrete next steps.",
+        "llm": "ibm/granite-3-3-8b-instruct",
+        "include_agent_context": false
+      }
+    },
+    "__start__": {
+      "spec": {
+        "kind": "start",
+        "name": "__start__",
+        "display_name": "__start__"
+      }
+    },
+    "__end__": {
+      "spec": {
+        "kind": "end",
+        "name": "__end__",
+        "display_name": "__end__"
+      }
+    }
+  },
+  "edges": [
+    {
+      "start": "__start__",
+      "end": "parse_candidate_profile"
+    },
+    {
+      "start": "parse_candidate_profile",
+      "end": "generate_prep_plan"
+    },
+    {
+      "start": "generate_prep_plan",
+      "end": "__end__"
+    }
+  ],
+  "schemas": {
+    "interview_prep_flow_input": {
+      "type": "object",
+      "title": "interview_prep_flow_input",
+      "required": [
+        "name",
+        "job_role",
+        "experience_level"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "Candidate's full name"
+        },
+        "job_role": {
+          "type": "string",
+          "title": "Job Role",
+          "description": "Target job role, e.g. 'Software Engineer', 'Data Scientist'"
+        },
+        "experience_level": {
+          "type": "string",
+          "title": "Experience Level",
+          "description": "Experience level: 'entry', 'mid', or 'senior'"
+        },
+        "tech_stack": {
+          "title": "Tech Stack",
+          "description": "Comma-separated list of technologies, e.g. 'Python, React, AWS'",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resume_summary": {
+          "title": "Resume Summary",
+          "description": "Brief resume summary or career highlights",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "parse_candidate_profile_input": {
+      "type": "object",
+      "title": "parse_candidate_profile_input",
+      "required": [
+        "name",
+        "job_role",
+        "experience_level"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "Candidate's full name."
+        },
+        "job_role": {
+          "type": "string",
+          "title": "Job Role",
+          "description": "Target job role."
+        },
+        "experience_level": {
+          "type": "string",
+          "title": "Experience Level",
+          "description": "Experience level: 'entry', 'mid', or 'senior'."
+        },
+        "tech_stack": {
+          "title": "Tech Stack",
+          "description": "Comma-separated list of technologies.",
+          "default": "__null__",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resume_summary": {
+          "title": "Resume Summary",
+          "description": "Brief resume summary or career highlights.",
+          "default": "__null__",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "PrepInput": {
+      "type": "object",
+      "title": "PrepInput",
+      "description": "Parsed prep context forwarded to the LLM prompt node.",
+      "required": [
+        "name",
+        "job_role",
+        "experience_level",
+        "focus_areas",
+        "question_types",
+        "tip",
+        "tech_stack"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "Candidate name"
+        },
+        "job_role": {
+          "type": "string",
+          "title": "Job Role",
+          "description": "Target job role"
+        },
+        "experience_level": {
+          "type": "string",
+          "title": "Experience Level",
+          "description": "Experience level"
+        },
+        "focus_areas": {
+          "type": "string",
+          "title": "Focus Areas",
+          "description": "Comma-separated focus areas"
+        },
+        "question_types": {
+          "type": "string",
+          "title": "Question Types",
+          "description": "Comma-separated question types"
+        },
+        "tip": {
+          "type": "string",
+          "title": "Tip",
+          "description": "Personalised preparation tip"
+        },
+        "tech_stack": {
+          "type": "string",
+          "title": "Tech Stack",
+          "description": "Tech stack string"
+        }
+      }
+    },
+    "generate_prep_plan_input": {
+      "type": "object",
+      "title": "generate_prep_plan_input",
+      "required": [
+        "name",
+        "job_role",
+        "experience_level",
+        "focus_areas",
+        "question_types",
+        "tip",
+        "tech_stack"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "Candidate name"
+        },
+        "job_role": {
+          "type": "string",
+          "title": "Job Role",
+          "description": "Target job role"
+        },
+        "experience_level": {
+          "type": "string",
+          "title": "Experience Level",
+          "description": "Experience level"
+        },
+        "focus_areas": {
+          "type": "string",
+          "title": "Focus Areas",
+          "description": "Comma-separated focus areas"
+        },
+        "question_types": {
+          "type": "string",
+          "title": "Question Types",
+          "description": "Comma-separated question types"
+        },
+        "tip": {
+          "type": "string",
+          "title": "Tip",
+          "description": "Personalised preparation tip"
+        },
+        "tech_stack": {
+          "type": "string",
+          "title": "Tech Stack",
+          "description": "Tech stack string"
+        }
+      }
+    },
+    "InterviewPrepFlowOutput": {
+      "type": "object",
+      "title": "InterviewPrepFlowOutput",
+      "description": "Final structured output of the interview prep flow.",
+      "required": [],
+      "properties": {
+        "candidate_name": {
+          "type": "string",
+          "title": "Candidate Name",
+          "description": "Candidate's name",
+          "default": ""
+        },
+        "job_role": {
+          "type": "string",
+          "title": "Job Role",
+          "description": "Target job role",
+          "default": ""
+        },
+        "experience_level": {
+          "type": "string",
+          "title": "Experience Level",
+          "description": "Experience level",
+          "default": ""
+        },
+        "preparation_plan": {
+          "type": "string",
+          "title": "Preparation Plan",
+          "description": "Full personalised interview preparation plan",
+          "default": ""
+        },
+        "question_preview": {
+          "type": "string",
+          "title": "Question Preview",
+          "description": "Preview of key questions to practise",
+          "default": ""
+        },
+        "next_steps": {
+          "type": "string",
+          "title": "Next Steps",
+          "description": "Concrete next steps for the candidate",
+          "default": ""
+        }
+      }
+    }
+  },
+  "metadata": {
+    "source_kind": "adk/python",
+    "compiled_on": "2026-09-10T14:46:11.928976+00:00"
+  }
+}

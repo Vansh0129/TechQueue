@@ -1,0 +1,22 @@
+# TechQueue Knowledge Base: Behavioral Interview & STAR Framework Guide
+
+## 1. The STAR Methodology
+The STAR framework is the industry gold standard for answering behavioral questions:
+- Situation: Set the context and background. Where were you working? What was the project or challenge? Keep it concise (15-20% of the answer).
+- Task: Describe your specific responsibility or the goal you needed to accomplish. What was at stake? (10-15% of the answer).
+- Action: Detail the specific steps YOU took. Use "I" rather than "we". Highlight problem-solving, technical decisions, leadership, and collaboration (50-60% of the answer).
+- Result: Conclude with measurable business impact, metrics, lessons learned, and long-term outcomes (15-20% of the answer).
+
+## 2. Essential Behavioral Competencies & Sample Scenarios
+1. Technical Disagreements:
+   - Question: "Tell me about a time you disagreed with a senior engineer or architect."
+   - Good Approach: Focus on objective data, benchmarks, trade-off matrices, respectful communication, and disagreeing and committing once a consensus is reached.
+2. Handling Failure & Production Incidents:
+   - Question: "Describe a project that failed or a severe outage you caused."
+   - Good Approach: Own the mistake without making excuses, describe immediate remediation (triage, rollback, communication), and detail the post-mortem action items (blameless root cause analysis, automated alerts, regression tests).
+3. Cross-functional Collaboration:
+   - Question: "How do you handle ambiguous requirements or difficult stakeholders?"
+   - Good Approach: Proactive alignment meetings, writing RFCs/design docs, defining clear acceptance criteria, and regular sprint demos.
+4. Mentorship & Team Culture:
+   - Question: "Tell me about a time you mentored a junior engineer."
+   - Good Approach: Pair programming, constructive code reviews with explanations, creating onboarding documentation, and helping them ship their first major feature independently.

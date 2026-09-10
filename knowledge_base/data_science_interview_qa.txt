@@ -1,0 +1,13 @@
+# TechQueue Knowledge Base: Data Science & Machine Learning Guide
+
+## 1. Core Machine Learning Concepts
+- Bias-Variance Tradeoff: High bias leads to underfitting (model too simple); high variance leads to overfitting (model learns noise). Regularization (L1 Lasso for feature selection, L2 Ridge to shrink weights, Dropout in neural nets).
+- Evaluation Metrics:
+  - Classification: Precision (True Positives / Predicted Positives), Recall (True Positives / Actual Positives), F1-Score (harmonic mean), ROC-AUC (performance across all classification thresholds), PR-AUC (preferred for imbalanced datasets).
+  - Regression: RMSE, MAE, R-squared, MAPE.
+- Cross-Validation: K-Fold cross-validation, Stratified K-Fold (for imbalanced classes), Time-Series split (no lookahead bias).
+
+## 2. A/B Testing & Experimentation
+- Hypothesis Testing: Null hypothesis (H0) vs Alternative hypothesis (H1). Type I error (false positive, alpha) vs Type II error (false negative, beta). Statistical power (1 - beta, typically 80%).
+- Sample Size Calculation: Dependent on baseline conversion rate, minimum detectable effect (MDE), significance level (alpha = 0.05), and power (0.80).
+- Guardrail Metrics: Ensuring primary metric gains do not degrade user retention, page load latency, or error rates.

@@ -1,0 +1,15 @@
+# TechQueue Knowledge Base: Product Management Interview Guide
+
+## 1. Product Sense & Design Framework (CIRCLES Method)
+- Comprehend Situation: Clarify the goal, context, constraints, and platform.
+- Identify Customer: Segment users and select the primary persona with the most acute pain point.
+- Report Customer Needs: Map the user journey and highlight unmet needs.
+- Cut Through Prioritization: Prioritize user needs based on impact, frequency, and feasibility.
+- List Solutions: Brainstorm 3 distinct, creative solutions.
+- Evaluate Trade-offs: Compare solutions against pros, cons, engineering complexity, and risks.
+- Summarize Recommendation: Conclude with the chosen MVP, key metrics, and go-to-market strategy.
+
+## 2. Prioritization Frameworks
+- RICE: (Reach * Impact * Confidence) / Effort.
+- MoSCoW: Must have, Should have, Could have, Won't have.
+- North Star Metric: The single metric that best captures the core value delivered to customers (e.g., Spotify: Time spent listening; Airbnb: Nights booked).
