@@ -19,6 +19,11 @@ It retrieves role-specific interview questions, industry expectations, behaviora
 - 💬 **Conversational Coach** — Natural chat interface via watsonx Orchestrate
 
 ---
+## Demo
+<img width="1891" height="976" alt="image" src="https://github.com/user-attachments/assets/d9c1feee-cca4-48f6-bb76-337fdff7853f" />
+<img width="1891" height="887" alt="image" src="https://github.com/user-attachments/assets/ad9ec937-2e8c-43e9-84d9-8f62d576a8e7" />
+
+
 
 ## Architecture Diagram
 
